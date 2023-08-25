@@ -1,0 +1,152 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 15%;
+    background-color: aqua;
+    height: 100vh;
+}
+
+.main-content {
+    width: 85%;
+    padding: 1rem;
+}
+
+.menu-container {
+    margin: 0 auto;
+}
+
+.menu-accordion {
+    display: none;
+}
+
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: 1px solid grey;
+    cursor: pointer;
+    font-family: system-ui;
+    font-size: 1rem;
+}
+
+.toggle-button {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+}
+
+
+.toggle-button::before {
+    content: '+';
+    position: absolute;
+    font-size: 40px;
+    top: 39%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.toggle-button[aria-expanded="true"]::before {
+    content: '-';
+    position: absolute;
+    font-size: 40px;
+    top: 39%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.submenu {
+    list-style-type: none;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.submenu li {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: 1px solid grey;
+    cursor: pointer;
+    /* opacity: 0; */
+    /* transform: translateY(-20px); */
+    transition: opacity 0.3s, transform 0.3s;
+    font-family: system-ui;
+    font-size: 1rem;
+}
+
+.submenu.open {
+    max-height: 1000px; /* この値は十分大きな数値に設定 */
+}
+
+.submenu.open li {
+    opacity: 1;
+    /* transform: translateY(0); */
+}
+
+.menu-flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.menu-item {
+    flex: 1 1 calc(33.33% - 15px);
+    background-color: white;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid grey;
+    cursor: pointer;
+    font-family: system-ui;
+    font-size: 12px;
+    max-width: 370px;
+}
+
+@media (min-width: 769px) {
+    
+.menu-container {
+    margin: 0 auto;
+}
+    .menu-accordion {
+        display: none;
+    }
+    .menu-flexbox {
+        display: flex;
+        justify-content: center;
+        max-width: 1180px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-accordion {
+        display: block;
+    }
+    .main-content {
+        width: 100%;
+        padding: 1rem;
+    }
+    .menu-flexbox {
+        display: none;
+    }
+    .sidebar{
+        display: none;
+    }
+}
+
+.menu-item:hover, .menu-toggle:hover, .submenu li:hover {
+    background-color: #f1f1f1;
+}
