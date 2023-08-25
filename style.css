@@ -103,7 +103,7 @@ body {
 }
 
 .menu-item {
-    flex: 1 1 calc(33.33% - 15px);
+    flex: 0 1 calc(33.33% - 15px);
     background-color: white;
     color: black;
     padding: 10px;
